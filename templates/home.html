@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title></title>
+  </head>
+    <body>
+		<!-- la barre de navigation-->
+		<nav class="navbar navbar-dark bg-primary">
+				<a href="{% url 'home' %}"> <h5 class="my-0 mr-md-auto font-weight-normal text-white">Company name</h5></a>
+				<nav class="my-2 my-md-0 mr-md-3">
+					<a class="p-2 text-white" href="#">Enterprise</a>
+					<a class="p-2 text-white" href="#">Support</a>
+					<a class="p-2 text-white" href="#">Pricing</a>
+				</nav>
+				{% if user.is_authenticated %}
+					{{ user.username }}
+					<form class="form-inline my-2 my-lg-0">
+							<a href="{% url 'logout' %}" class="btn btn-outline-light">Log out</a>
+					</form>
+				{% else %}
+					<form class="form-inline my-2 my-lg-0">
+							<a href="{% url 'login' %}" class="btn btn-outline-light">Log in</a>
+							<a href="{% url 'signup' %}" class="btn btn-outline-light ml-2">Sign up</a>
+							<a href="{% url 'formulaire' %}" class="btn btn-outline-light ml-2">Formulaire</a>
+					</form>
+				{% endif %}
+		</nav>
+
+		<!-- search bar -->
+		<div class="row justify-content-center">
+				<div  class="col-12 col-md-10 col-lg-8">
+					<form action=" {% url 'resultat' %}" method="get" class="card card-sm">
+						<div class="card-body row no-gutters align-items-center">
+							<div class="col-auto">
+								<i class="fas fa-search h4 text-body"></i>
+							</div>
+							<!--end of col-->
+							<div class="col">
+								<input class="form-control form-control-lg form-control-borderless" name="search" type="text" placeholder="rechercher un medecin">
+							</div>
+							<!--end of col-->
+							<div class="col-auto">
+								<button class="btn btn-lg btn-primary" type="submit">Search</button>
+							</div>
+							<!--end of col-->
+						</div>
+					</form>
+				</div>
+				<!--end of col-->
+			</div>
+	</div>
+
+	<p>Welcome to My Site, {% if user.is_authenticated %}{{ user.username }}{% else %}visitor{% endif %}!</p>
+	
+		<div class="container">
+				{% block content %}
+				{% endblock %}
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

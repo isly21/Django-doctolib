@@ -1,0 +1,27 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<!--<div class="dl-layout-item dl-layout-size-xs-12 dl-layout-size-sm-6">
+        <li tabindex="0" class="Tappable-inactive dl-list-item Tappable-inactive dl-card dl-card-bg-white dl-card-horizontal dl-card-margin dl-card-tappable relative-list-item dl-list-item-border" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); user-select: none; cursor: pointer;"><div class="dl-card-content dl-card-content-horizontal">
+                <h3 class="dl-card-title">
+                <span class="dl-text dl-text-title-sub-bold">M. Islem YAHIAOUI (né YAHIAOUI)</span>
+                </h3><div class="dl-text dl-text-body">13/01/1995</div><div class="dl-text dl-text-body relative-list-item-address">113 BD Joffre, 21000 Dijon</div><span class="dl-badge dl-align-self-start" role="status">C'est vous !</span></div><div class="dl-card-icon"><i class="dl-card-icon-i icon-dm-pencil"></i></div></li>
+</div>
+
+-->
+
+
+        <div></div>
+
+        <div class="dl-card-content dl-card-content-horizontal">
+			<h3 class="dl-card-title">
+					<span class="dl-text dl-text-title-sub-bold">M. {{patient.prenom}} {{patient.nom}}</span>
+			</h3>
+			<div class="dl-text dl-text-body">{{patient.dateNaissance}}</div>
+			<div class="dl-text dl-text-body relative-list-item-address">{{patient.adresse}}</div>
+        </div>
+
+{% endblock %}
+
+

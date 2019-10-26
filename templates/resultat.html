@@ -1,0 +1,13 @@
+<html>
+   
+   <body>
+         <ul>
+               {% for medecin in object_list %}
+                 <li>
+                   {{ medecin.nom }}, {{ medecin.prenom }}
+                 </li>
+               {% endfor %}
+             </ul>
+   </body>
+   
+</html>
